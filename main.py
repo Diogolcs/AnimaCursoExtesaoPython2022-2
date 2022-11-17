@@ -141,35 +141,68 @@
 
 #Criar uma função calcular_imposto()
 
-def calcular_imposto(preco_produto):
+#def calcular_imposto(preco_produto):
 
-  imposto = preco_produto * 0.05
-  return imposto
+#  imposto = preco_produto * 0.05
+#  return imposto
 
 #Aqui é o uso... aqui é imposto a calcular...
-preco = 299
-imposto = calcular_imposto(299)
-print(imposto)
+#preco = 299
+#imposto = calcular_imposto(299)
+#print(imposto)
 
 
 
-valores = [1.99 , 24.50 , 78.27 , 1515.5]
+#valores = [1.99 , 24.50 , 78.27 , 1515.5]
 
-for valor in valores:  
-  print(f"O imposto de {valor} é {calcular_imposto(valor)}")
+#for valor in valores:  
+#  print(f"O imposto de {valor} é {calcular_imposto(valor)}")
 
 #Declarar um função calcular_imposto_aliquota que recebe dois parâmetros: o preço do produto e a alíquota de imposto a ser aplicada e retorna o imposto calculado. Se a aliquota não for informada, utilize 7% como padrão.
   
-def calcular_imposto_aliquota(valor, aliquota=7):
-  imposto = valor * aliquota / 100
-  return imposto
+#def calcular_imposto_aliquota(valor, aliquota=7):
+#  imposto = valor * aliquota / 100
+#  return imposto
 
-for valor in valores:
-  print(f"O imposto de {valor} é {calcular_imposto_aliquota(valor)}")
+#for valor in valores:
+#  print(f"O imposto de {valor} é {calcular_imposto_aliquota(valor)}")
 
-for valor in valores:
-  print(f"O imposto de {valor} é {calcular_imposto_aliquota(valor, 7)}")
+#for valor in valores:
+#  print(f"O imposto de {valor} é {calcular_imposto_aliquota(valor, 7)}")
 
 #E se agora o imposto for 10%?
-for valor in valores:
-  print(f"O imposto de {valor} é {calcular_imposto_aliquota(valor, 10)}")
+#for valor in valores:
+#  print(f"O imposto de {valor} é {calcular_imposto_aliquota(valor, 10)}")
+
+
+#4o. passo: Comando SQL do banco
+#sql = "SELECT pessoa_id, nome, nome_civil, tipo FROM pessoas"
+
+#5o. passo: Executar o comando SQL no SQLlite (no cursor)
+#cursor.execute(sql)
+
+#6o. passo: Exibir a consulta com todos os nomes de heróis e vilões do banco de dados
+#pessoas = cursor.fetchall()
+#for pessoa in pessoas:
+#  print(pessoa)
+
+#for pessoa in pessoas:
+#  print(f"Nome:{pessoa[1]} ({pessoa[3]})")
+
+print("--------------------------------------------------------\n")
+#1o. passo: importar a biblioteca sqlite3
+import sqlite3
+
+#2o. passo: Vamos estabelecer uma 
+#conexão com o banco de dados
+conexao = sqlite3.connect("dc_universe.db")
+
+#3o. passo: criar um objeto do tipo cursor
+cursor = conexao.cursor()
+
+#4o. passo: comando para inserir um herói/vilão
+sql = "INSERT INTO pessoas (pessoa_id, nome, nome_civil, tipo) VALUES (12, 'The Flash', 'Barry Allen', 'Herói(na)')"
+
+#5o passo: EXecutar o comando SQL
+print(cursor.execute(sql))
+
